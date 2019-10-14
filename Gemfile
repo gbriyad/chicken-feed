@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
-gem 'slim', '~> 4.0', '>= 4.0.1'
+gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
