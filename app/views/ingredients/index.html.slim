@@ -1,21 +1,20 @@
 h1 Listing ingredients
 
-table
+table.table.table-striped.table-bordered.table-hover
   thead
     tr
       th Name
-      th
-      th
-      th
+      th Actions
 
   tbody
     - @ingredients.each do |ingredient|
       tr
         td = ingredient.name
-        td = link_to 'Show', ingredient
-        td = link_to 'Edit', edit_ingredient_path(ingredient)
-        td = link_to 'Destroy', ingredient, data: { confirm: 'Are you sure?' }, method: :delete
+        td
+          = link_to 'Show', ingredient, class: 'btn btn-success btn-sm'
+          = link_to 'Edit', edit_ingredient_path(ingredient), class: 'btn btn-info btn-sm m-1'
+          = link_to 'Destroy', ingredient, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
 
 br
 
-= link_to 'New Ingredient', new_ingredient_path
+= link_to 'New Ingredient', new_ingredient_path, class: 'btn btn-success'

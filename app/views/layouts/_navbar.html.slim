@@ -1,4 +1,14 @@
-nav.navbar.navbar-light.bg-light
+nav.navbar.navbar-expand-md.navbar-light.bg-light
   = link_to root_path, class: 'navbar-brand' do
     = image_tag 'chicken-logo.png', class: 'd-inline-block align-top', height: 30
     | Chicken Feed
+  button.navbar-toggler aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarNavAltMarkup.collapse.navbar-collapse
+    ul.navbar-nav
+      li.nav-item
+        = link_to 'Home', root_path, class: 'nav-link'
+      li.nav-item
+        = link_to 'Ingredients', ingredients_path, class: 'nav-link'
+      li.nav-item
+        a.nav-link href="#"  Pricing
