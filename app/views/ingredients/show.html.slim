@@ -1,9 +1,10 @@
-p#notice = notice
+.m-4
+  strong.text-success#notice = notice
+.m-4
+  .row
+    strong.col-2 Name:
+    = @ingredient.name
+.m-4
+  => link_to 'Edit', edit_ingredient_path(@ingredient), class: 'btn btn-info'
 
-p
-  strong Name:
-  = @ingredient.name
-
-=> link_to 'Edit', edit_ingredient_path(@ingredient)
-'|
-=< link_to 'Back', ingredients_path
+  =< link_to 'Back', ingredients_path, class: 'btn btn-danger'

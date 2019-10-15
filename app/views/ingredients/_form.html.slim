@@ -1,12 +1,16 @@
-= form_for @ingredient do |f|
+= form_for @ingredient, html: { class: 'bg-light m-4 p-4' } do |f|
   - if @ingredient.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@ingredient.errors.count, "error")} prohibited this ingredient from being saved:"
-      ul
-        - @ingredient.errors.full_messages.each do |message|
-          li = message
+    #error_explanation.mb-4
+      / h4 = "#{pluralize(@ingredient.errors.count, "error")} prohibited this ingredient from being saved:"
+      h4 Errors:
+      / ul
+      - @ingredient.errors.full_messages.each do |message|
+        li.text-danger = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions = f.submit
+  .form-group.row.required
+    = f.label :name, class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+  .form-group.row.mb-0
+    .col
+      = f.submit 'Create', class: 'btn btn-success float-right'
