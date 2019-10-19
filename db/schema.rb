@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_184819) do
+ActiveRecord::Schema.define(version: 2019_10_18_194828) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price_per_unit"
+    t.decimal "stock_quantity", default: "0.0"
+    t.decimal "feed_formulation_quantity", default: "0.0"
+    t.decimal "last_purchased_price_per_unit", default: "0.0"
   end
 
 end

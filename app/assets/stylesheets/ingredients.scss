@@ -1,3 +1,15 @@
 // Place all the styles related to the Ingredients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#ingredients{
+  table{
+    td{
+      padding: 0.3rem;
+    }
+  }
+  #show{
+    .row{
+      margin-top: 1rem;
+    }
+  }
+}

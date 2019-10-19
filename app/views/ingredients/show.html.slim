@@ -1,10 +1,23 @@
-.m-4
-  strong.text-success#notice = notice
-.m-4
-  .row
-    strong.col-2 Name:
-    = @ingredient.name
-.m-4
-  => link_to 'Edit', edit_ingredient_path(@ingredient), class: 'btn btn-info'
-
-  =< link_to 'Back', ingredients_path, class: 'btn btn-danger'
+#ingredients
+  #show
+    .m-4
+      strong.text-success#notice = notice
+    .m-4.p-4.bg-light
+      .row
+        strong.col-4 Name:
+        = @ingredient.name
+      .row
+        strong.col-4 Feed formulation quantity:
+        = @ingredient.feed_formulation_quantity
+        | KG
+      .row
+        strong.col-4 Stock:
+        = @ingredient.stock_quantity
+        | KG
+      .row
+        strong.col-4 Last purchasing price:
+        = @ingredient.last_purchased_price_per_unit
+        | BDT
+    .m-4
+      => link_to 'Edit', edit_ingredient_path(@ingredient), class: 'btn btn-info'
+      =< link_to 'Back', ingredients_path, class: 'btn btn-danger'

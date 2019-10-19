@@ -1,20 +1,27 @@
-h1 Listing ingredients
+#ingredients
+  h1 Listing ingredients
 
-table.table.table-striped.table-bordered.table-hover
-  thead
-    tr
-      th Name
-      th Actions
-
-  tbody
-    - @ingredients.each do |ingredient|
+  table.table.table-striped.table-bordered.table-hover.text-center
+    thead
       tr
-        td = ingredient.name
-        td
-          = link_to 'Show', ingredient, class: 'btn btn-success btn-sm'
-          = link_to 'Edit', edit_ingredient_path(ingredient), class: 'btn btn-info btn-sm m-1'
-          = link_to 'Destroy', ingredient, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
+        th Name
+        th Feed formulation quantity(KG)
+        th Stock(KG)
+        th Last purchasing price(BDT)
+        th Actions
 
-br
+    tbody
+      - @ingredients.each do |ingredient|
+        tr
+          td = ingredient.name
+          td = ingredient.feed_formulation_quantity
+          td = ingredient.stock_quantity
+          td = ingredient.last_purchased_price_per_unit
+          td
+            = link_to 'Show', ingredient, class: 'btn btn-success btn-sm'
+            = link_to 'Edit', edit_ingredient_path(ingredient), class: 'btn btn-info btn-sm m-1'
+            = link_to 'Destroy', ingredient, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
 
-= link_to 'New Ingredient', new_ingredient_path, class: 'btn btn-success'
+  br
+
+  = link_to 'New Ingredient', new_ingredient_path, class: 'btn btn-success'
