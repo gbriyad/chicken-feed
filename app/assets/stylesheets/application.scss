@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-datepicker";
 nav{
   background-color: #696969;
 }
@@ -9,4 +10,6 @@ nav{
   content:"*";
   color:red;
 }
+.field_with_errors { display: inline; }
 @import 'ingredients';
+@import 'purchases';

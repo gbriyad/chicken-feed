@@ -1,0 +1,26 @@
+#purchases
+  #show
+    .m-4
+      strong.text-success#notice = notice
+    .m-4.p-4.bg-light
+      .row
+        strong.col-4 Purchase Date:
+        = @purchase.date.strftime("%d %B, %Y")
+      .row
+        strong.col-4 Ingredient name:
+        = @purchase.ingredient.name
+      .row
+        strong.col-4 Quantity:
+        = @purchase.quantity
+        | KG
+      .row
+        strong.col-4 Price per unit
+        = @purchase.price_per_unit
+        | BDT/KG
+      .row
+        strong.col-4 Total:
+        = @purchase.quantity * @purchase.price_per_unit
+        | BDT
+    .m-4
+      => link_to 'Edit', edit_purchase_path(@purchase), class: 'btn btn-info'
+      =< link_to 'Back', purchases_path, class: 'btn btn-danger'

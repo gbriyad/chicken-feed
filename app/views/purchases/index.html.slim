@@ -1,0 +1,29 @@
+#ingredients
+  h1 Listing purchases
+
+  table.table.table-striped.table-bordered.table-hover.text-center
+    thead
+      tr
+        th Purchased Date
+        th Ingredient Name
+        th Quantity(KG)
+        th Price(BDT/KG)
+        th Total(BDT)
+        th Actions
+
+    tbody
+      - @purchases.each do |purchase|
+        tr
+          td = purchase.date.strftime("%d %B, %Y")
+          td = purchase.ingredient.name
+          td = purchase.quantity
+          td = purchase.price_per_unit
+          td = purchase.quantity * purchase.price_per_unit
+          td
+            = link_to 'Show', purchase, class: 'btn btn-success btn-sm'
+            = link_to 'Edit', edit_purchase_path(purchase), class: 'btn btn-info btn-sm m-1'
+            = link_to 'Destroy', purchase, data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger btn-sm'
+
+  br
+
+  = link_to 'New Purchase', new_purchase_path, class: 'btn btn-success'

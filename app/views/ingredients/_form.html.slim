@@ -1,9 +1,7 @@
 = form_for @ingredient, html: { class: 'bg-light m-4 p-4' } do |f|
   - if @ingredient.errors.any?
     #error_explanation.mb-4
-      / h4 = "#{pluralize(@ingredient.errors.count, "error")} prohibited this ingredient from being saved:"
       h4 Errors:
-      / ul
       - @ingredient.errors.full_messages.each do |message|
         li.text-danger = message
 
@@ -28,7 +26,7 @@
     .col-sm-8
       .input-group-prepend
         = f.number_field :last_purchased_price_per_unit, class: 'form-control', step: '.0001'
-        span.input-group-text BDT
+        span.input-group-text BDT/KG
   .form-group.row.mb-0
     .col
       = f.submit 'Create', class: 'btn btn-success float-right'

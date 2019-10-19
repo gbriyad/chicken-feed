@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_194828) do
+ActiveRecord::Schema.define(version: 2019_10_19_095647) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2019_10_18_194828) do
     t.decimal "stock_quantity", default: "0.0"
     t.decimal "feed_formulation_quantity", default: "0.0"
     t.decimal "last_purchased_price_per_unit", default: "0.0"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.decimal "quantity"
+    t.decimal "price_per_unit"
+    t.date "date"
+    t.integer "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_purchases_on_ingredient_id"
   end
 
 end
