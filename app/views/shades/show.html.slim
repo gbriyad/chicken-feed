@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @shade.name
+p
+  strong Branch:
+  = @shade.branch
+
+=> link_to 'Edit', edit_shade_path(@shade)
+'|
+=< link_to 'Back', shades_path

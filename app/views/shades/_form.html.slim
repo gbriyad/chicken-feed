@@ -1,0 +1,15 @@
+= form_for @shade do |f|
+  - if @shade.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@shade.errors.count, "error")} prohibited this shade from being saved:"
+      ul
+        - @shade.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :branch
+    = f.text_field :branch
+  .actions = f.submit

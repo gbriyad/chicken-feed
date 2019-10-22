@@ -1,0 +1,23 @@
+h1 Listing shades
+
+table
+  thead
+    tr
+      th Name
+      th Branch
+      th
+      th
+      th
+
+  tbody
+    - @shades.each do |shade|
+      tr
+        td = shade.name
+        td = shade.branch
+        td = link_to 'Show', shade
+        td = link_to 'Edit', edit_shade_path(shade)
+        td = link_to 'Destroy', shade, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Shade', new_shade_path
