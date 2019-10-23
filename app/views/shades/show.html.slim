@@ -1,12 +1,14 @@
-p#notice = notice
-
-p
-  strong Name:
-  = @shade.name
-p
-  strong Branch:
-  = @shade.branch
-
-=> link_to 'Edit', edit_shade_path(@shade)
-'|
-=< link_to 'Back', shades_path
+#shades
+  #show
+    .m-4
+      strong.text-success#notice = notice
+    .m-4.p-4.bg-light
+      .row
+        strong.col-4 Name:
+        = @shade.name
+      .row
+        strong.col-4 Branch:
+        = @shade.branch.name
+    .m-4
+      => link_to 'Edit', edit_shade_path(@shade), class: 'btn btn-info'
+      =< link_to 'Back', shades_path, class: 'btn btn-danger'

@@ -1,23 +1,22 @@
-h1 Listing shades
+#shades
+  h1 Listing shades
 
-table
-  thead
-    tr
-      th Name
-      th Branch
-      th
-      th
-      th
-
-  tbody
-    - @shades.each do |shade|
+  table.table.table-striped.table-bordered.table-hover.text-center
+    thead
       tr
-        td = shade.name
-        td = shade.branch
-        td = link_to 'Show', shade
-        td = link_to 'Edit', edit_shade_path(shade)
-        td = link_to 'Destroy', shade, data: { confirm: 'Are you sure?' }, method: :delete
+        th Name
+        th Branch
+        th Actions
+    tbody
+      - @shades.each do |shade|
+        tr
+          td = shade.name
+          td = shade.branch.name
+          td
+            = link_to 'Show', shade, class: 'btn btn-success btn-sm'
+            = link_to 'Edit', edit_shade_path(shade), class: 'btn btn-info btn-sm m-1'
+            = link_to 'Destroy', shade, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
 
-br
+  br
 
-= link_to 'New Shade', new_shade_path
+  = link_to 'New Shade', new_shade_path, class: 'btn btn-success'

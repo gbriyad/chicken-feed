@@ -1,15 +1,17 @@
-= form_for @shade do |f|
+= form_for @shade, html: {class: 'bg-light m-4 p-4'} do |f|
   - if @shade.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@shade.errors.count, "error")} prohibited this shade from being saved:"
-      ul
-        - @shade.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :branch
-    = f.text_field :branch
-  .actions = f.submit
+    #error_explanation.mb-4
+      h4 Errors:
+      - @shade.errors.full_messages.each do |message|
+        li.text-danger = message
+  .form-group.row.required
+    = f.label :branch, class: 'col-sm-4 col-form-label'
+    .col-sm-8
+      = collection_select(:shade, :branch_id, Branch.all, :id, :name, {prompt: true}, {class: 'form-control'})
+  .form-group.row.required
+    = f.label :name, class: 'col-sm-4 col-form-label'
+    .col-sm-8
+      = f.text_field :name, class: 'form-control'
+  .form-group.row.mb-0
+    .col
+      = f.submit 'Create', class: 'btn btn-success float-right'
