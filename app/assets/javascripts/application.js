@@ -16,4 +16,6 @@
 //= require popper
 //= require bootstrap
 //= require bootstrap-datepicker
-//= require_tree .
+//= require datepicker
+//= require purchases
+//= require batches

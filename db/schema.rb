@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_201804) do
+ActiveRecord::Schema.define(version: 2019_10_24_200456) do
+
+  create_table "batches", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.integer "shade_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shade_id"], name: "index_batches_on_shade_id"
+  end
 
   create_table "branches", force: :cascade do |t|
     t.string "name"

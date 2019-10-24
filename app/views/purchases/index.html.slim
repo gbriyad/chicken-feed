@@ -14,7 +14,7 @@
     tbody
       - @purchases.each do |purchase|
         tr
-          td = purchase.date.strftime("%d %B, %Y")
+          td = format_date(purchase.date)
           td = purchase.ingredient.name
           td = purchase.quantity
           td = purchase.price_per_unit

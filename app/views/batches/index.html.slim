@@ -1,0 +1,24 @@
+#batches
+  h1 Listing batches
+
+  table.table.table-striped.table-bordered.table-hover.text-center
+    thead
+      tr
+        th Name
+        th Shade
+        th Start Date
+        th Actions
+    tbody
+      - @batches.each do |batch|
+        tr
+          td = batch.name
+          td = batch.shade.name
+          td = format_date(batch.start_date)
+          td
+            = link_to 'Show', batch, class: 'btn btn-success btn-sm'
+            = link_to 'Edit', edit_batch_path(batch), class: 'btn btn-info btn-sm m-1'
+            = link_to 'Destroy', batch, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
+
+  br
+
+  = link_to 'New Batch', new_batch_path, class: 'btn btn-success'
