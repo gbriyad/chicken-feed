@@ -1,0 +1,29 @@
+#ingredients
+  h1 Listing feeds
+
+  table.table.table-striped.table-bordered.table-hover.text-center
+    thead
+      tr
+        th Feed Date
+        th Batch
+        th Total Chickens
+        th Chicken age
+        th Feed amount/Chicken(KG)
+        th Actions
+
+    tbody
+      - @feeds.each do |feed|
+        tr
+          td = format_date(feed.date)
+          td = feed.batch.branch_shade_name_start_date
+          td = feed.total_chickens
+          td = (feed.date - feed.batch.start_date).to_i
+          td = feed.feed_quantity_per_chicken
+          td
+            = link_to 'Show', feed, class: 'btn btn-success btn-sm'
+            = link_to 'Edit', edit_feed_path(feed), class: 'btn btn-info btn-sm m-1'
+            = link_to 'Destroy', feed, data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger btn-sm'
+
+  br
+
+  = link_to 'New Feed', new_feed_path, class: 'btn btn-success'

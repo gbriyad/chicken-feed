@@ -1,6 +1,4 @@
 #ingredients
-  h1 Listing ingredients
-
   table.table.table-striped.table-bordered.table-hover.text-center
     thead
       tr
@@ -9,20 +7,11 @@
           = 'Feed formulation quantity [Total: ' + Ingredient.sum(:feed_formulation_quantity).to_s + '(KG)]'
         th Stock(KG)
         th Last purchasing price(BDT)
-        th Actions
 
     tbody
-      - @ingredients.each do |ingredient|
+      - Ingredient.all.each do |ingredient|
         tr
           td = ingredient.name
           td = ingredient.feed_formulation_quantity
           td = ingredient.stock_quantity
           td = ingredient.last_purchased_price_per_unit
-          td
-            = link_to 'Show', ingredient, class: 'btn btn-success btn-sm'
-            = link_to 'Edit', edit_ingredient_path(ingredient), class: 'btn btn-info btn-sm m-1'
-            = link_to 'Destroy', ingredient, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
-
-  br
-
-  = link_to 'New Ingredient', new_ingredient_path, class: 'btn btn-success'

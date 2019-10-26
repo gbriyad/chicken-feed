@@ -1,0 +1,26 @@
+#feeds
+  #show
+    .m-4
+      strong.text-success#notice = notice
+    .m-4.p-4.bg-light
+      .row
+        strong.col-4 feed Date:
+        = format_date(@feed.date)
+      .row
+        strong.col-4 Ingredient name:
+        = @feed.ingredient.name
+      .row
+        strong.col-4 Quantity:
+        = @feed.quantity
+        | KG
+      .row
+        strong.col-4 Price per unit
+        = @feed.price_per_unit
+        | BDT/KG
+      .row
+        strong.col-4 Total:
+        = @feed.quantity * @feed.price_per_unit
+        | BDT
+    .m-4
+      => link_to 'Edit', edit_feed_path(@feed), class: 'btn btn-info'
+      =< link_to 'Back', feeds_path, class: 'btn btn-danger'

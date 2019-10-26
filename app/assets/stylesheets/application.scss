@@ -11,5 +11,12 @@ nav{
   color:red;
 }
 .field_with_errors { display: inline; }
+.datepicker{
+  padding: inherit;
+}
 @import 'ingredients';
 @import 'purchases';
+@import 'batches';
+@import 'branches';
+@import 'feeds';
+@import 'shades';

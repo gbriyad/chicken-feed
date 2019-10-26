@@ -19,3 +19,4 @@
 //= require datepicker
 //= require purchases
 //= require batches
+//= require feeds
