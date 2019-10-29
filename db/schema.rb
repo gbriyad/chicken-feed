@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_135358) do
+ActiveRecord::Schema.define(version: 2019_10_29_193534) do
 
   create_table "batches", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2019_10_26_135358) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "feed_ingredients", force: :cascade do |t|
+    t.integer "feed_id"
+    t.integer "ingredient_id"
+    t.decimal "price"
+    t.decimal "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_feed_ingredients_on_feed_id"
+    t.index ["ingredient_id"], name: "index_feed_ingredients_on_ingredient_id"
   end
 
   create_table "feeds", force: :cascade do |t|

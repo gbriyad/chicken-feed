@@ -1,0 +1,2 @@
+module FeedIngredientsHelper
+end

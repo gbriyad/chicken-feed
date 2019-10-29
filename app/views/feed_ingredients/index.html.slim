@@ -1,0 +1,27 @@
+h1 Listing feed_ingredients
+
+table
+  thead
+    tr
+      th Feed
+      th Ingredient
+      th Price
+      th Quantity
+      th
+      th
+      th
+
+  tbody
+    - @feed_ingredients.each do |feed_ingredient|
+      tr
+        td = feed_ingredient.feed
+        td = feed_ingredient.ingredient
+        td = feed_ingredient.price
+        td = feed_ingredient.quantity
+        td = link_to 'Show', feed_ingredient
+        td = link_to 'Edit', edit_feed_ingredient_path(feed_ingredient)
+        td = link_to 'Destroy', feed_ingredient, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Feed ingredient', new_feed_ingredient_path

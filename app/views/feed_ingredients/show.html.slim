@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Feed:
+  = @feed_ingredient.feed
+p
+  strong Ingredient:
+  = @feed_ingredient.ingredient
+p
+  strong Price:
+  = @feed_ingredient.price
+p
+  strong Quantity:
+  = @feed_ingredient.quantity
+
+=> link_to 'Edit', edit_feed_ingredient_path(@feed_ingredient)
+'|
+=< link_to 'Back', feed_ingredients_path
