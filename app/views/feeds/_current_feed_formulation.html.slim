@@ -4,7 +4,7 @@
       tr
         th Name
         th
-          = 'Feed formulation quantity [Total: ' + Ingredient.sum(:feed_formulation_quantity).to_s + '(KG)]'
+          = 'Feed formulation quantity [Total: ' + Ingredient.sum_of_all_ingredients_used_in_feed_formulation.to_s + '(KG)]'
         th Stock(KG)
         th Last purchasing price(BDT)
 

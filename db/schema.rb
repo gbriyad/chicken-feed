@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_193534) do
   create_table "feed_ingredients", force: :cascade do |t|
     t.integer "feed_id"
     t.integer "ingredient_id"
-    t.decimal "price"
-    t.decimal "quantity"
+    t.decimal "price_per_unit"
+    t.decimal "feed_formulation_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["feed_id"], name: "index_feed_ingredients_on_feed_id"
