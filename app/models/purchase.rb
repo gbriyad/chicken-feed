@@ -20,9 +20,8 @@ class Purchase < ApplicationRecord
 
   def update_ingredient_information(price_per_unit, quantity_to_be_added)
     if price_per_unit.present?
-      ingredient.last_purchased_price_per_unit = price_per_unit
+      ingredient.update_last_purchased_price_per_unit(price_per_unit)
     end
-    ingredient.stock_quantity += quantity_to_be_added
-    ingredient.save!
+    ingredient.add_to_stock(quantity_to_be_added)
   end
 end

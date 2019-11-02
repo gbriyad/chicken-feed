@@ -29,7 +29,7 @@ class Feed < ApplicationRecord
     ingredients << Ingredient.all
     feed_ingredients.each do |feed_ingredient|
       feed_ingredient.price_per_unit = feed_ingredient.ingredient.last_purchased_price_per_unit
-      feed_ingredient.ingredient.consume(feed_ingredient.ingredient.units_needed_to_make_a_feed(total_units_of_feed_needed))
+      feed_ingredient.ingredient.consume_from_stock(feed_ingredient.ingredient.units_needed_to_make_a_feed(total_units_of_feed_needed))
     end
   end
 end

@@ -13,9 +13,18 @@ class Ingredient < ApplicationRecord
     feed_formulation_quantity / Ingredient.sum_of_all_ingredients_used_in_feed_formulation * total_units_of_feed
   end
 
-  def consume(units)
+  def consume_from_stock(units)
     new_stock = stock_quantity - units
     update_attributes(stock_quantity: new_stock)
+  end
+
+  def add_to_stock(units)
+    new_stock = stock_quantity + units
+    update_attributes(stock_quantity: new_stock)
+  end
+
+  def update_last_purchased_price_per_unit(price)
+    update_attributes(last_purchased_price_per_unit: price)
   end
 
 end
