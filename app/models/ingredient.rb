@@ -9,7 +9,7 @@ class Ingredient < ApplicationRecord
     Ingredient.sum(:feed_formulation_quantity)
   end
 
-  def units_needed_to_make_a_feed(total_units_of_feed)
+  def quantity_needed_to_make_a_feed_based_on_current_feed_formulation(total_units_of_feed)
     feed_formulation_quantity / Ingredient.sum_of_all_ingredients_used_in_feed_formulation * total_units_of_feed
   end
 
