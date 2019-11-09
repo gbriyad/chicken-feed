@@ -1,4 +1,7 @@
+
 = form_for @feed, html: {class: 'bg-light m-4 p-4'} do |f|
+  - if alert.present?
+    li.text-danger = alert
   - if @feed.errors.any?
     #error_explanation.mb-4
       h4 Errors:

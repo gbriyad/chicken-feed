@@ -21,7 +21,7 @@
           td = feed.feed_quantity_per_chicken
           td
             = link_to 'Show', feed, class: 'btn btn-success btn-sm'
-            = link_to 'Edit', edit_feed_path(feed), class: 'btn btn-info btn-sm m-1'
+            / = link_to 'Edit', edit_feed_path(feed), class: 'btn btn-info btn-sm m-1'
             = link_to 'Destroy', feed, data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger btn-sm'
 
   br
