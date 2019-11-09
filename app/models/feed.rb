@@ -4,8 +4,20 @@ class Feed < ApplicationRecord
   has_many :feed_ingredients, dependent: :destroy
   has_many :ingredients, through: :feed_ingredients, dependent: :restrict_with_error
 
-  validates :feed_quantity_per_chicken, :total_chickens, :date, presence: true
+  validates :feed_quantity_per_chicken, :total_chickens, :date, :days, presence: true
   validate :feed_date_cannot_be_before_batch_date
+
+  def total_quantity_of_ingredients
+    total_chickens * feed_quantity_per_chicken * days
+  end
+
+  def total_cost
+    sum = 0.0
+    feed_ingredients.each do |feed_ingredient|
+      sum += feed_ingredient.total_cost
+    end
+    sum
+  end
 
   def sum_of_all_ingredients_used_in_feed_formulation
     feed_ingredients.sum(:feed_formulation_quantity)
@@ -33,9 +45,8 @@ class Feed < ApplicationRecord
   end
 
   def needed_ingredients_quantity_in_stock?
-    total_units_of_feed_needed = total_chickens * feed_quantity_per_chicken
     Ingredient.all.each do |ingredient|
-      if ingredient.quantity_needed_to_make_a_feed_based_on_current_feed_formulation(total_units_of_feed_needed) > ingredient.stock_quantity
+      if ingredient.quantity_needed_to_make_a_feed_based_on_current_feed_formulation(total_quantity_of_ingredients) > ingredient.stock_quantity
         return false
       end
     end

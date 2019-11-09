@@ -9,6 +9,7 @@
         th Total Chickens
         th Chicken age
         th Feed amount/Chicken(KG)
+        th Feed for
         th Actions
 
     tbody
@@ -19,6 +20,7 @@
           td = feed.total_chickens
           td = (feed.date - feed.batch.start_date).to_i
           td = feed.feed_quantity_per_chicken
+          td = feed.days || '' + ' days'
           td
             = link_to 'Show', feed, class: 'btn btn-success btn-sm'
             / = link_to 'Edit', edit_feed_path(feed), class: 'btn btn-info btn-sm m-1'

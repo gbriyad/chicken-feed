@@ -9,14 +9,15 @@ nav.navbar.navbar-expand-md.navbar-dark
       li.nav-item
         = link_to 'Home', root_path, class: 'nav-link'
       li.nav-item
-        = link_to 'Ingredients', ingredients_path, class: 'nav-link'
-      li.nav-item
         = link_to 'Purchases', purchases_path, class: 'nav-link'
       li.nav-item
-        = link_to 'Branches', branches_path, class: 'nav-link'
-      li.nav-item
-        = link_to 'Shades', shades_path, class: 'nav-link'
-      li.nav-item
-        = link_to 'Batches', batches_path, class: 'nav-link'
-      li.nav-item
         = link_to 'Feeds', feeds_path, class: 'nav-link'
+      li.nav-item.dropdown
+        a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+          | Master Setting
+        .dropdown-menu aria-labelledby="navbarDropdown"
+          = link_to 'Branches', branches_path, class: 'dropdown-item'
+          = link_to 'Shades', shades_path, class: 'dropdown-item'
+          = link_to 'Batches', batches_path, class: 'dropdown-item'
+          .dropdown-divider
+          = link_to 'Feed Formulation', ingredients_path, class: 'dropdown-item'

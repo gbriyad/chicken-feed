@@ -16,6 +16,11 @@
     .col-sm-8
       = f.text_field :date, class: 'form-control datepicker feed-datepicker', autocomplete: 'off'
   .form-group.row.required
+    = f.label :days, class: 'col-sm-4 col-form-label'
+    .col-sm-8
+      .input-group-prepend
+        = f.number_field :days, class: 'form-control'
+  .form-group.row.required
     = f.label :total_chickens, class: 'col-sm-4 col-form-label'
     .col-sm-8
       .input-group-prepend

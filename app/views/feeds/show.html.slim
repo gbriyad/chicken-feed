@@ -4,23 +4,53 @@
       strong.text-success#notice = notice
     .m-4.p-4.bg-light
       .row
-        strong.col-4 feed Date:
+        strong.col-4 Batch:
+        = @feed.batch.name
+      .row
+        strong.col-4 Feed Date:
         = format_date(@feed.date)
       .row
-        strong.col-4 Ingredient name:
-        = @feed.ingredient.name
+        strong.col-4 Days:
+        = @feed.days || ''
       .row
-        strong.col-4 Quantity:
-        = @feed.quantity
+        strong.col-4 Total chickens:
+        = @feed.total_chickens
+      .row
+        strong.col-4 Chicken age:
+        = (@feed.date - @feed.batch.start_date).to_i
+      .row
+        strong.col-4 Feed Quantity Per Chicken:
+        = @feed.feed_quantity_per_chicken
+        | KG/chicken
+      .row
+        strong.col-4 Total :
+        = @feed.total_quantity_of_ingredients
         | KG
-      .row
-        strong.col-4 Price per unit
-        = @feed.price_per_unit
-        | BDT/KG
-      .row
-        strong.col-4 Total:
-        = @feed.quantity * @feed.price_per_unit
-        | BDT
+
+    h3.m-4 Ingredients amount and pricing:
+    table.table.table-striped.table-bordered.table-hover.text-center
+      thead
+        tr
+          th Ingredient
+          th Feed formulation quantity (KG)
+          th Total(KG)
+          th Price per Unit (BDT/KG)
+          th Total Cost(BDT)
+
+      tbody
+        - @feed.feed_ingredients.each do |feed_ingredient|
+          tr
+            td = feed_ingredient.ingredient.name
+            td = feed_ingredient.feed_formulation_quantity
+            td = feed_ingredient.total_quantity_needed
+            td = feed_ingredient.price_per_unit
+            td = feed_ingredient.total_cost
+        tr.font-weight-bold.bg-success
+          td Total
+          td = @feed.sum_of_all_ingredients_used_in_feed_formulation
+          td = @feed.total_quantity_of_ingredients
+          td
+          td = @feed.total_cost
     .m-4
       / => link_to 'Edit', edit_feed_path(@feed), class: 'btn btn-info'
       =< link_to 'Back', feeds_path, class: 'btn btn-danger'

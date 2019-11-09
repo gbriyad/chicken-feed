@@ -3,7 +3,7 @@ class FeedIngredient < ApplicationRecord
   belongs_to :ingredient
 
   def total_quantity_needed
-    feed_formulation_quantity / feed.sum_of_all_ingredients_used_in_feed_formulation * feed.total_chickens * feed.feed_quantity_per_chicken
+    feed_formulation_quantity / feed.sum_of_all_ingredients_used_in_feed_formulation * feed.total_quantity_of_ingredients
   end
 
   def total_cost

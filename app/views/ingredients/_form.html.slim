@@ -19,13 +19,13 @@
     = f.label :stock_quantity, class: 'col-sm-4 col-form-label'
     .col-sm-8
       .input-group-prepend
-        = f.number_field :stock_quantity, class: 'form-control', step: '.0001'
+        = f.number_field :stock_quantity, class: 'form-control', step: '.0001', disabled: :disabled
         span.input-group-text KG
   .form-group.row
     = f.label :last_purchased_price_per_unit, class: 'col-sm-4 col-form-label'
     .col-sm-8
       .input-group-prepend
-        = f.number_field :last_purchased_price_per_unit, class: 'form-control', step: '.0001'
+        = f.number_field :last_purchased_price_per_unit, class: 'form-control', step: '.0001', disabled: :disabled
         span.input-group-text BDT/KG
   .form-group.row.mb-0
     .col
