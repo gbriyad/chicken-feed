@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all
+    @feeds = Feed.chronologize
   end
 
   # GET /feeds/1

@@ -7,6 +7,8 @@ class Feed < ApplicationRecord
   validates :feed_quantity_per_chicken, :total_chickens, :date, :days, presence: true
   validate :feed_date_cannot_be_before_batch_date
 
+  scope :chronologize, -> { order(date: :desc) }
+
   def total_quantity_of_ingredients
     total_chickens * feed_quantity_per_chicken * days
   end

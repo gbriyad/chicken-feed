@@ -5,6 +5,8 @@ class Purchase < ApplicationRecord
   belongs_to :ingredient
   validates :quantity, :price_per_unit, :date, presence: true
 
+  scope :chronologize, -> { order(date: :desc) }
+
   after_create do
     update_ingredient_information price_per_unit, quantity
   end
