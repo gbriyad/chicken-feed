@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = Purchase.chronologize
+    @purchases = Purchase.chronologize.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /purchases/1

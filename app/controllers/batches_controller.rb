@@ -4,7 +4,7 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.chronologize
+    @batches = Batch.chronologize.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /batches/1

@@ -2,6 +2,9 @@
 @import "bootstrap-datepicker";
 nav{
   background-color: #696969;
+  .dropdown-item:active{
+    background-color: lightgray;
+  }
 }
 .col-form-label{
   font-weight: bold;
@@ -13,6 +16,23 @@ nav{
 .field_with_errors { display: inline; }
 .datepicker{
   padding: inherit;
+}
+$pagination-color: #696969;
+.pagination{
+  border-radius: 0;
+  background-color: white;
+  .page-item{
+    .page-link{
+      color: $pagination-color;
+    }
+  }
+  .page-item.active{
+    .page-link{
+      background-color: $pagination-color;
+      border-color: $pagination-color;
+      color: white;
+    }
+  }
 }
 @import 'ingredients';
 @import 'purchases';

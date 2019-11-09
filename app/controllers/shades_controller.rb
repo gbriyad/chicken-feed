@@ -4,7 +4,7 @@ class ShadesController < ApplicationController
   # GET /shades
   # GET /shades.json
   def index
-    @shades = Shade.all
+    @shades = Shade.all.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /shades/1

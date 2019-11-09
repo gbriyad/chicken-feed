@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 gem 'bootstrap-datepicker-rails'
+gem 'will_paginate-bootstrap4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -24,5 +24,5 @@
             = link_to 'Destroy', ingredient, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
 
   br
-
+  = will_paginate @ingredients, list_classes: %w(pagination justify-content-center)
   = link_to 'New Ingredient', new_ingredient_path, class: 'btn btn-success'

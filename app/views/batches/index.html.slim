@@ -20,5 +20,5 @@
             = link_to 'Destroy', batch, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger btn-sm'
 
   br
-
+  = will_paginate @batches, list_classes: %w(pagination justify-content-center)
   = link_to 'New Batch', new_batch_path, class: 'btn btn-success'
