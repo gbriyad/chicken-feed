@@ -1,0 +1,19 @@
+h1 Log in
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'bg-light m-4 p-4' }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .form-group.row.required
+    = f.label :email, class: 'col-sm-4 col-form-label'
+    .col-sm-8
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+  .form-group.row.required
+    = f.label :password, class: 'col-sm-4 col-form-label'
+    .col-sm-8
+      = f.password_field :password, autocomplete: "current-password", class: 'form-control'
+  - if devise_mapping.rememberable?
+    .form-check
+      = f.check_box :remember_me, class: 'form-check-input'
+      = f.label :remember_me, class: 'form-check-label'
+  .form-group.row.mb-0
+    .col
+      = f.submit 'Login', class: 'btn btn-success float-right'
+= render "devise/shared/links"

@@ -1,0 +1,5 @@
+- if resource.errors.any?
+  #error_explanation.mb-4
+    h4 Errors:
+    - resource.errors.full_messages.each do |message|
+      li.text-danger = message
