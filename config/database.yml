@@ -7,10 +7,5 @@ development:
   host: 127.0.0.1
   port: 3306
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  database: chicken-feed-production
-  username: root
-  password: root
-  host: 127.0.0.1
-  port: 3306
